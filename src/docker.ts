@@ -1,10 +1,15 @@
 import * as core from '@actions/core'
 import * as exec from '@actions/exec'
 import * as im from '@actions/exec/lib/interfaces'
-import {latestBuiltImage, noBuiltImage, imageTag} from './docker-util'
+import {
+  latestBuiltImage,
+  noBuiltImage,
+  imageTag,
+  dockerImageLs
+} from './docker-util'
 import {BuildError, ScanError, PushError} from './error'
-import {Vulnerability} from './types'
-import {notifyVulnerability} from './notification'
+// import {Vulnerability} from './types'
+// import {notifyVulnerability} from './notification'
 
 export default class Docker {
   private registry: string
@@ -41,6 +46,10 @@ export default class Docker {
         target
       ])
 
+      const images = await dockerImageLs('kp/nest-auth')
+      for (const image of images) {
+        image.RepoTags
+      }
       return this.update()
     } catch (e) {
       core.debug('build() error')
@@ -85,11 +94,11 @@ export default class Docker {
         ],
         options
       )
-
-      const vulnerabilities: Vulnerability[] = JSON.parse(trivyScanReport)
-      if (vulnerabilities.length > 0) {
-        notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
-      }
+      core.debug(trivyScanReport)
+      // const vulnerabilities: Vulnerability[] = JSON.parse(trivyScanReport)
+      // if (vulnerabilities.length > 0) {
+      //   notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
+      // }
 
       return result
     } catch (e) {

@@ -3417,44 +3417,11 @@ module.exports = {"version":"2.0","metadata":{"apiVersion":"2014-06-30","endpoin
 /* 59 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["@slack/web-api@5.9.0","/Users/sakai-manabu/repository/image_assembly_line"]],"_from":"@slack/web-api@5.9.0","_id":"@slack/web-api@5.9.0","_inBundle":false,"_integrity":"sha512-gIRvuA9wGtp4S/Zc+zfT59IaGHYzNxjob2QxoJlc3JZ3BLuPMa6Lw81YBV0xutJvUVFPX2ytW27KAUakvi5ZMA==","_location":"/@slack/web-api","_phantomChildren":{"asynckit":"0.4.0","combined-stream":"1.0.8","mime-types":"2.1.25"},"_requested":{"type":"version","registry":true,"raw":"@slack/web-api@5.9.0","name":"@slack/web-api","escapedName":"@slack%2fweb-api","scope":"@slack","rawSpec":"5.9.0","saveSpec":null,"fetchSpec":"5.9.0"},"_requiredBy":["/@slack/bolt","/@slack/oauth"],"_resolved":"https://registry.npmjs.org/@slack/web-api/-/web-api-5.9.0.tgz","_spec":"5.9.0","_where":"/Users/sakai-manabu/repository/image_assembly_line","author":{"name":"Slack Technologies, Inc."},"bugs":{"url":"https://github.com/slackapi/node-slack-sdk/issues"},"dependencies":{"@slack/logger":">=1.0.0 <3.0.0","@slack/types":"^1.2.1","@types/is-stream":"^1.1.0","@types/node":">=8.9.0","@types/p-queue":"^2.3.2","axios":"^0.19.0","eventemitter3":"^3.1.0","form-data":"^2.5.0","is-stream":"^1.1.0","p-queue":"^2.4.2","p-retry":"^4.0.0"},"description":"Official library for using the Slack Platform's Web API","devDependencies":{"@aoberoi/capture-console":"^1.1.0","@types/chai":"^4.1.7","@types/mocha":"^5.2.6","busboy":"^0.3.0","chai":"^4.2.0","codecov":"^3.2.0","mocha":"^6.0.2","nock":"^10.0.6","nyc":"^14.1.1","shelljs":"^0.8.3","shx":"^0.3.2","sinon":"^7.2.7","source-map-support":"^0.5.10","ts-node":"^8.0.3","tslint":"^5.13.1","tslint-config-airbnb":"^5.11.1","typescript":"^3.3.3333"},"engines":{"node":">= 8.9.0","npm":">= 5.5.1"},"files":["dist/**/*"],"homepage":"https://slack.dev/node-slack-sdk/web-api","keywords":["slack","web-api","bot","client","http","api","proxy","rate-limiting","pagination"],"license":"MIT","main":"dist/index.js","name":"@slack/web-api","publishConfig":{"access":"public"},"repository":{"type":"git","url":"git+https://github.com/slackapi/node-slack-sdk.git"},"scripts":{"build":"npm run build:clean && tsc","build:clean":"shx rm -rf ./dist ./coverage ./.nyc_output","coverage":"codecov -F webapi --root=$PWD","lint":"tslint --project .","prepare":"npm run build","test":"npm run build && nyc mocha --config .mocharc.json src/*.spec.js"},"types":"./dist/index.d.ts","version":"5.9.0"};
+module.exports = {"_from":"@slack/web-api@^5.8.0","_id":"@slack/web-api@5.9.0","_inBundle":false,"_integrity":"sha512-gIRvuA9wGtp4S/Zc+zfT59IaGHYzNxjob2QxoJlc3JZ3BLuPMa6Lw81YBV0xutJvUVFPX2ytW27KAUakvi5ZMA==","_location":"/@slack/web-api","_phantomChildren":{"asynckit":"0.4.0","combined-stream":"1.0.8","mime-types":"2.1.25"},"_requested":{"type":"range","registry":true,"raw":"@slack/web-api@^5.8.0","name":"@slack/web-api","escapedName":"@slack%2fweb-api","scope":"@slack","rawSpec":"^5.8.0","saveSpec":null,"fetchSpec":"^5.8.0"},"_requiredBy":["/@slack/bolt"],"_resolved":"https://registry.npmjs.org/@slack/web-api/-/web-api-5.9.0.tgz","_shasum":"13ce1eecc405c3972e6037d54338344d7859a3b5","_spec":"@slack/web-api@^5.8.0","_where":"/Users/kaku-junichi/Workspace/image_assembly_line/node_modules/@slack/bolt","author":{"name":"Slack Technologies, Inc."},"bugs":{"url":"https://github.com/slackapi/node-slack-sdk/issues"},"bundleDependencies":false,"dependencies":{"@slack/logger":">=1.0.0 <3.0.0","@slack/types":"^1.2.1","@types/is-stream":"^1.1.0","@types/node":">=8.9.0","@types/p-queue":"^2.3.2","axios":"^0.19.0","eventemitter3":"^3.1.0","form-data":"^2.5.0","is-stream":"^1.1.0","p-queue":"^2.4.2","p-retry":"^4.0.0"},"deprecated":false,"description":"Official library for using the Slack Platform's Web API","devDependencies":{"@aoberoi/capture-console":"^1.1.0","@types/chai":"^4.1.7","@types/mocha":"^5.2.6","busboy":"^0.3.0","chai":"^4.2.0","codecov":"^3.2.0","mocha":"^6.0.2","nock":"^10.0.6","nyc":"^14.1.1","shelljs":"^0.8.3","shx":"^0.3.2","sinon":"^7.2.7","source-map-support":"^0.5.10","ts-node":"^8.0.3","tslint":"^5.13.1","tslint-config-airbnb":"^5.11.1","typescript":"^3.3.3333"},"engines":{"node":">= 8.9.0","npm":">= 5.5.1"},"files":["dist/**/*"],"homepage":"https://slack.dev/node-slack-sdk/web-api","keywords":["slack","web-api","bot","client","http","api","proxy","rate-limiting","pagination"],"license":"MIT","main":"dist/index.js","name":"@slack/web-api","publishConfig":{"access":"public"},"repository":{"type":"git","url":"git+https://github.com/slackapi/node-slack-sdk.git"},"scripts":{"build":"npm run build:clean && tsc","build:clean":"shx rm -rf ./dist ./coverage ./.nyc_output","coverage":"codecov -F webapi --root=$PWD","lint":"tslint --project .","prepare":"npm run build","test":"npm run build && nyc mocha --config .mocharc.json src/*.spec.js"},"types":"./dist/index.d.ts","version":"5.9.0"};
 
 /***/ }),
 /* 60 */,
-/* 61 */
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core = __importStar(__webpack_require__(470));
-function setDelivery(delivery) {
-    return __awaiter(this, void 0, void 0, function* () {
-        core.setOutput('built_image_name', delivery.dockerImage.imageName);
-        core.setOutput('built_image_id', delivery.dockerImage.imageID);
-        core.setOutput('git_hub_run_id', delivery.gitHubRunID);
-    });
-}
-exports.setDelivery = setDelivery;
-
-
-/***/ }),
+/* 61 */,
 /* 62 */
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -7236,7 +7203,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const docker_1 = __importDefault(__webpack_require__(231));
 const error_1 = __webpack_require__(25);
-const deliver_1 = __webpack_require__(61);
+const deliver_1 = __webpack_require__(852);
 const notification = __importStar(__webpack_require__(62));
 const s3 = __importStar(__webpack_require__(673));
 const types_1 = __webpack_require__(251);
@@ -7259,6 +7226,10 @@ function run() {
             core.debug(registry);
             if (process.env.GITHUB_TOKEN) {
                 core.setSecret(process.env.GITHUB_TOKEN);
+            }
+            core.debug('BUILD_VERSION:');
+            if (process.env.BUILD_VERSION) {
+                core.debug(process.env.BUILD_VERSION);
             }
             const target = core.getInput('target');
             core.debug(`target: ${target}`);
@@ -7285,6 +7256,7 @@ function run() {
                 }
                 else {
                     for (const tag of docker.builtImage.tags) {
+                        core.debug(`tag: ${tag}`);
                         yield docker.push(tag);
                     }
                 }
@@ -7294,7 +7266,7 @@ function run() {
                 });
             }
             const endTime = new Date(); // UTC
-            s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError');
+            // s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError')
             const elapsedSec = (endTime.getTime() - startTime.getTime()) / 1000;
             const buildTime = `${Math.floor(elapsedSec / 60)}min ${elapsedSec % 60}sec`;
             notification.notifyReadyToDeploy(thisAction, imageName, buildTime, (_a = docker.builtImage) === null || _a === void 0 ? void 0 : _a.tags.join(', '));
@@ -7825,7 +7797,8 @@ const core = __importStar(__webpack_require__(470));
 const exec = __importStar(__webpack_require__(986));
 const docker_util_1 = __webpack_require__(708);
 const error_1 = __webpack_require__(25);
-const notification_1 = __webpack_require__(62);
+// import {Vulnerability} from './types'
+// import {notifyVulnerability} from './notification'
 class Docker {
     constructor(registry, imageName, commitHash) {
         if (!registry) {
@@ -7853,6 +7826,10 @@ class Docker {
                     `IMAGE_NAME=${this.imageName}`,
                     target
                 ]);
+                const images = yield docker_util_1.dockerImageLs('kp/nest-auth');
+                for (const image of images) {
+                    image.RepoTags;
+                }
                 return this.update();
             }
             catch (e) {
@@ -7892,10 +7869,11 @@ class Docker {
                     severityLevel,
                     imageName
                 ], options);
-                const vulnerabilities = JSON.parse(trivyScanReport);
-                if (vulnerabilities.length > 0) {
-                    notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
-                }
+                core.debug(trivyScanReport);
+                // const vulnerabilities: Vulnerability[] = JSON.parse(trivyScanReport)
+                // if (vulnerabilities.length > 0) {
+                //   notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
+                // }
                 return result;
             }
             catch (e) {
@@ -9609,7 +9587,7 @@ module.exports = require("assert");
 /* 361 */
 /***/ (function(module) {
 
-module.exports = {"_args":[["axios@0.19.2","/Users/sakai-manabu/repository/image_assembly_line"]],"_from":"axios@0.19.2","_id":"axios@0.19.2","_inBundle":false,"_integrity":"sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.19.2","name":"axios","escapedName":"axios","rawSpec":"0.19.2","saveSpec":null,"fetchSpec":"0.19.2"},"_requiredBy":["/@slack/bolt","/@slack/web-api"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.2.tgz","_spec":"0.19.2","_where":"/Users/sakai-manabu/repository/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.2"};
+module.exports = {"_from":"axios","_id":"axios@0.19.2","_inBundle":false,"_integrity":"sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"axios","name":"axios","escapedName":"axios","rawSpec":"","saveSpec":null,"fetchSpec":"latest"},"_requiredBy":["#USER","/","/@slack/bolt","/@slack/web-api"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.19.2.tgz","_shasum":"3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27","_spec":"axios","_where":"/Users/kaku-junichi/Workspace/image_assembly_line","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundleDependencies":false,"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"1.5.10"},"deprecated":false,"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"bundlesize":"^0.17.0","coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.0.2","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^20.1.0","grunt-karma":"^2.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^1.0.18","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^1.3.0","karma-chrome-launcher":"^2.2.0","karma-coverage":"^1.1.1","karma-firefox-launcher":"^1.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-opera-launcher":"^1.0.0","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^1.2.0","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.7","karma-webpack":"^1.7.0","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^5.2.0","sinon":"^4.5.0","typescript":"^2.8.1","url-search-params":"^0.10.0","webpack":"^1.13.1","webpack-dev-server":"^1.14.1"},"homepage":"https://github.com/axios/axios","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test && bundlesize","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","version":"0.19.2"};
 
 /***/ }),
 /* 362 */,
@@ -10528,7 +10506,7 @@ function escape(s) {
  * @private
  */
 
-var db = __webpack_require__(852)
+var db = __webpack_require__(972)
 var extname = __webpack_require__(622).extname
 
 /**
@@ -20482,10 +20460,13 @@ function latestBuiltImage(imageName) {
             throw new Error('No images built');
         }
         const latestImage = images[0];
+        core.info('tags:');
+        core.info(latestImage.RepoTags.length);
         const builtImageName = latestImage.RepoTags[0].split(':')[0];
         const builtImageID = latestImage.Id;
         const tags = [];
         for (const repoTag of latestImage.RepoTags) {
+            core.info(repoTag);
             tags.push(repoTag.split(':').pop());
         }
         return {
@@ -26072,19 +26053,36 @@ module.exports = {"version":"2.0","metadata":{"apiVersion":"2015-09-21","endpoin
 /* 850 */,
 /* 851 */,
 /* 852 */
-/***/ (function(module, __unusedexports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
-/*!
- * mime-db
- * Copyright(c) 2014 Jonathan Ong
- * MIT Licensed
- */
+"use strict";
 
-/**
- * Module exports.
- */
-
-module.exports = __webpack_require__(512)
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __importStar(__webpack_require__(470));
+function setDelivery(delivery) {
+    return __awaiter(this, void 0, void 0, function* () {
+        core.setOutput('built_image_name', delivery.dockerImage.imageName);
+        core.setOutput('built_image_id', delivery.dockerImage.imageID);
+        core.setOutput('git_hub_run_id', delivery.gitHubRunID);
+    });
+}
+exports.setDelivery = setDelivery;
 
 
 /***/ }),
@@ -31655,7 +31653,23 @@ AWS.SAMLCredentials = AWS.util.inherit(AWS.Credentials, {
 /* 969 */,
 /* 970 */,
 /* 971 */,
-/* 972 */,
+/* 972 */
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+/*!
+ * mime-db
+ * Copyright(c) 2014 Jonathan Ong
+ * MIT Licensed
+ */
+
+/**
+ * Module exports.
+ */
+
+module.exports = __webpack_require__(512)
+
+
+/***/ }),
 /* 973 */,
 /* 974 */,
 /* 975 */,

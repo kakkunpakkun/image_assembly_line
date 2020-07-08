@@ -27,6 +27,10 @@ async function run(): Promise<void> {
       core.setSecret(process.env.GITHUB_TOKEN)
     }
 
+    core.info('BUILD_VERSION:')
+    if (process.env.BUILD_VERSION) {
+      core.info(process.env.BUILD_VERSION)
+    }
     const target = core.getInput('target')
     core.debug(`target: ${target}`)
 
@@ -60,6 +64,7 @@ async function run(): Promise<void> {
         core.info('no_push: true')
       } else {
         for (const tag of docker.builtImage.tags) {
+          core.debug(`tag: ${tag}`)
           await docker.push(tag)
         }
       }
@@ -70,7 +75,7 @@ async function run(): Promise<void> {
     }
 
     const endTime = new Date() // UTC
-    s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError')
+    // s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError')
 
     const elapsedSec = (endTime.getTime() - startTime.getTime()) / 1000
     const buildTime = `${Math.floor(elapsedSec / 60)}min ${elapsedSec % 60}sec`
