@@ -22,11 +22,14 @@ export async function latestBuiltImage(
   }
 
   const latestImage = images[0]
-
+  core.info('tags:')
+  core.info(latestImage.RepoTags.length)
   const builtImageName = latestImage.RepoTags[0].split(':')[0]
   const builtImageID = latestImage.Id
   const tags = []
+
   for (const repoTag of latestImage.RepoTags) {
+    core.info(repoTag)
     tags.push(repoTag.split(':').pop())
   }
 

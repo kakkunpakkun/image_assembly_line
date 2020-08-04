@@ -3535,40 +3535,7 @@ module.exports = {"_args":[["@slack/web-api@5.9.0","/Users/ikezawa-ryota/src/git
 
 /***/ }),
 /* 60 */,
-/* 61 */
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const core = __importStar(__webpack_require__(470));
-function setDelivery(delivery) {
-    return __awaiter(this, void 0, void 0, function* () {
-        core.setOutput('built_image_name', delivery.dockerImage.imageName);
-        core.setOutput('built_image_id', delivery.dockerImage.imageID);
-        core.setOutput('git_hub_run_id', delivery.gitHubRunID);
-    });
-}
-exports.setDelivery = setDelivery;
-
-
-/***/ }),
+/* 61 */,
 /* 62 */
 /***/ (function(__unusedmodule, exports, __webpack_require__) {
 
@@ -4003,10 +3970,10 @@ function serial(list, iterator, callback)
 // rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
 // sell copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -4084,7 +4051,7 @@ util.inherits(LineStream, stream.Transform);
 LineStream.prototype._transform = function(chunk, encoding, done) {
   // decode binary chunks as UTF-8
   encoding = encoding || 'utf8';
-  
+
   if (Buffer.isBuffer(chunk)) {
     if (encoding == 'buffer') {
       chunk = chunk.toString(); // utf8
@@ -4095,15 +4062,15 @@ LineStream.prototype._transform = function(chunk, encoding, done) {
     }
   }
   this._chunkEncoding = encoding;
-  
+
   // see: http://www.unicode.org/reports/tr18/#Line_Boundaries
   var lines = chunk.split(/\r\n|[\n\v\f\r\x85\u2028\u2029]/g);
-  
+
   // don't split CRLF which spans chunks
   if (this._lastChunkEndedWithCR && chunk[0] == '\n') {
     lines.shift();
   }
-  
+
   if (this._lineBuffer.length > 0) {
     this._lineBuffer[this._lineBuffer.length - 1] += lines[0];
     lines.shift();
@@ -7564,7 +7531,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const docker_1 = __importDefault(__webpack_require__(231));
 const error_1 = __webpack_require__(25);
-const deliver_1 = __webpack_require__(61);
+const deliver_1 = __webpack_require__(852);
 const notification = __importStar(__webpack_require__(62));
 const s3 = __importStar(__webpack_require__(673));
 const types_1 = __webpack_require__(251);
@@ -7613,6 +7580,10 @@ function run() {
             if (env.GITHUB_TOKEN) {
                 core.setSecret(env.GITHUB_TOKEN);
             }
+            core.debug('BUILD_VERSION:');
+            if (process.env.BUILD_VERSION) {
+                core.debug(process.env.BUILD_VERSION);
+            }
             const target = core.getInput('target');
             core.debug(`target: ${target}`);
             const imageName = core.getInput('image_name');
@@ -7637,6 +7608,7 @@ function run() {
                 }
                 else {
                     for (const tag of docker.builtImage.tags) {
+                        core.debug(`tag: ${tag}`);
                         yield docker.push(tag);
                     }
                 }
@@ -7646,7 +7618,7 @@ function run() {
                 });
             }
             const endTime = new Date(); // UTC
-            s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError');
+            // s3.uploadBuildTime(startTime, endTime, imageName, 'success', 'NoError')
             const elapsedSec = (endTime.getTime() - startTime.getTime()) / 1000;
             const buildTime = `${Math.floor(elapsedSec / 60)}min ${elapsedSec % 60}sec`;
             notification.notifyReadyToDeploy(thisAction, imageName, buildTime, (_a = docker.builtImage) === null || _a === void 0 ? void 0 : _a.tags.join(', '));
@@ -8252,6 +8224,10 @@ class Docker {
                     `IMAGE_NAME=${this.imageName}`,
                     target
                 ]);
+                const images = yield docker_util_1.dockerImageLs('kp/nest-auth');
+                for (const image of images) {
+                    image.RepoTags;
+                }
                 return this.update();
             }
             catch (e) {
@@ -8291,10 +8267,11 @@ class Docker {
                     severityLevel,
                     imageName
                 ], options);
-                const vulnerabilities = JSON.parse(trivyScanReport);
-                if (vulnerabilities.length > 0) {
-                    notification_1.notifyVulnerability(imageName, vulnerabilities, trivyScanReport);
-                }
+                core.debug(trivyScanReport);
+                // const vulnerabilities: Vulnerability[] = JSON.parse(trivyScanReport)
+                // if (vulnerabilities.length > 0) {
+                //   notifyVulnerability(imageName, vulnerabilities, trivyScanReport)
+                // }
                 return result;
             }
             catch (e) {
@@ -10454,7 +10431,7 @@ function bytesToUuid(buf, offset) {
   var i = offset || 0;
   var bth = byteToHex;
   // join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
-  return ([bth[buf[i++]], bth[buf[i++]], 
+  return ([bth[buf[i++]], bth[buf[i++]],
 	bth[buf[i++]], bth[buf[i++]], '-',
 	bth[buf[i++]], bth[buf[i++]], '-',
 	bth[buf[i++]], bth[buf[i++]], '-',
@@ -11223,7 +11200,7 @@ function escape(s) {
  * @private
  */
 
-var db = __webpack_require__(852)
+var db = __webpack_require__(972)
 var extname = __webpack_require__(622).extname
 
 /**
@@ -24279,10 +24256,13 @@ function latestBuiltImage(imageName) {
             throw new Error('No images built');
         }
         const latestImage = images[0];
+        core.info('tags:');
+        core.info(latestImage.RepoTags.length);
         const builtImageName = latestImage.RepoTags[0].split(':')[0];
         const builtImageID = latestImage.Id;
         const tags = [];
         for (const repoTag of latestImage.RepoTags) {
+            core.info(repoTag);
             tags.push(repoTag.split(':').pop());
         }
         return {
@@ -29999,19 +29979,36 @@ module.exports = {"version":"2.0","metadata":{"apiVersion":"2015-09-21","endpoin
 /* 850 */,
 /* 851 */,
 /* 852 */
-/***/ (function(module, __unusedexports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __webpack_require__) {
 
-/*!
- * mime-db
- * Copyright(c) 2014 Jonathan Ong
- * MIT Licensed
- */
+"use strict";
 
-/**
- * Module exports.
- */
-
-module.exports = __webpack_require__(512)
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const core = __importStar(__webpack_require__(470));
+function setDelivery(delivery) {
+    return __awaiter(this, void 0, void 0, function* () {
+        core.setOutput('built_image_name', delivery.dockerImage.imageName);
+        core.setOutput('built_image_id', delivery.dockerImage.imageID);
+        core.setOutput('git_hub_run_id', delivery.gitHubRunID);
+    });
+}
+exports.setDelivery = setDelivery;
 
 
 /***/ }),
@@ -35793,7 +35790,23 @@ AWS.SAMLCredentials = AWS.util.inherit(AWS.Credentials, {
 /* 969 */,
 /* 970 */,
 /* 971 */,
-/* 972 */,
+/* 972 */
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+/*!
+ * mime-db
+ * Copyright(c) 2014 Jonathan Ong
+ * MIT Licensed
+ */
+
+/**
+ * Module exports.
+ */
+
+module.exports = __webpack_require__(512)
+
+
+/***/ }),
 /* 973 */,
 /* 974 */,
 /* 975 */,
