@@ -48,7 +48,7 @@
     "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
     "typescript": "^3.6.4",
-    "minimist": "^0.2.1",
+    "minimist": "^1.2.2",
     "kind-of": "^6.0.3",
     "dotenv": "^8.2.0"
   }
